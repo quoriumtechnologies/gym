@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, Share2, MessageCircle } from "lucide-react";
@@ -36,10 +35,7 @@ export default async function BlogPostPage({
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-matte-black" />
         </div>
         <div className="relative z-10 text-center pt-24 pb-16 px-4 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <div>
             <span className="glass text-xs text-neon-green px-3 py-1.5 rounded-full mb-4 inline-block">
               {post.category}
             </span>
@@ -57,18 +53,14 @@ export default async function BlogPostPage({
               </span>
               <span>By {post.author}</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Content */}
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+          <div>
             {/* Back link */}
             <Link
               href="/blog"
@@ -156,7 +148,7 @@ export default async function BlogPostPage({
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
