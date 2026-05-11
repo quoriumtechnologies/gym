@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Clock, Share2, MessageCircle } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import GlowText from "@/components/ui/GlowText";
+import BlogShareButtons from "@/components/ui/BlogShareButtons";
 import { blogPosts, siteConfig } from "@/lib/constants";
 
 export function generateStaticParams() {
@@ -128,24 +129,7 @@ export default async function BlogPostPage({
             <div className="mt-12 pt-8 border-t border-white/10">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-gray-400">Share this article</p>
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => navigator.clipboard.writeText(shareUrl)}
-                    className="flex items-center gap-2 glass px-4 py-2 rounded-lg text-sm text-gray-300 hover:text-neon-green transition-colors"
-                  >
-                    <Share2 size={14} />
-                    Copy Link
-                  </button>
-                  <a
-                    href={`https://wa.me/?text=${encodeURIComponent(post.title + " " + shareUrl)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 glass px-4 py-2 rounded-lg text-sm text-gray-300 hover:text-neon-green transition-colors"
-                  >
-                    <MessageCircle size={14} />
-                    Share
-                  </a>
-                </div>
+                <BlogShareButtons shareUrl={shareUrl} title={post.title} />
               </div>
             </div>
           </div>
