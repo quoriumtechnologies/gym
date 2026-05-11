@@ -17,7 +17,7 @@ interface ProgramCardProps {
   index?: number;
 }
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Dumbbell: Icons.Dumbbell,
   Flame: Icons.Flame,
   Heart: Icons.Heart,
